@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ujala Cyber Cafe</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* ANNOUNCEMENT BAR WITH CLOSE BUTTON */
+#announcement-bar {
+    background: linear-gradient(90deg, #ff8c00, #ff0080);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    font-weight: bold;
+    font-size: clamp(14px, 4vw, 18px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.8s ease-out;
+}
+
+.announcement-content {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.new-tag {
+    background: white;
+    color: #ff0080;
+    padding: 2px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    animation: blink 1s infinite;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #0f2027;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* LOGO STYLE */
+.logo {
+    width: 180px; /* Aap size yahan se adjust kar sakte hain */
+    height: auto;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+header h1 {
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin: 10px 0;
+}
+
+header p {
+    opacity: 0.8;
+}
+
+/* CARD GLASS EFFECT */
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background: #00c6ff;
+    color: black;
+}
+
+tr:nth-child(even) {
+    background: rgba(255,255,255,0.05);
+}
+
+tr:hover {
+    background: rgba(0,198,255,0.2);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0,0,0,0.5);
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    z-index: 100;
+}
+
+/* ANIMATIONS */
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.fade {
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="announcement-bar">
+    <div class="announcement-content">
+        <span class="new-tag">New Update</span> 
+        🎉 Hamara Ujala Cyber Cafe 26/03 Se Open Ho Gaya Hai! 🚀
+    </div>
+    <div class="close-btn" onclick="closeAnnouncement()">&times;</div>
+</div>
+
+<header class="fade">
+    <img src="logo.jpeg" alt="Ujala CSC Logo" class="logo">
+    <h1>🎉 UJALA CYBER CAFE</h1>
+    <p>Fast • Secure • Reliable Digital Services</p>
+</header>
+
+<div class="card fade">
+    <h2>📋 Rate List</h2>
+    <table>
+        <tr>
+            <th>Service</th>
+            <th>Price (₹)</th>
+        </tr>
+        <tr><td>Aadhar Print</td><td>50</td></tr>
+        <tr><td>PAN Card Apply</td><td>120</td></tr>
+        <tr><td>Online Form</td><td>100</td></tr>
+        <tr><td>Print (B/W)</td><td>10/page</td></tr>
+        <tr><td>Print (Color)</td><td>10/page</td></tr>
+        <tr><td>Scanning</td><td>10</td></tr>
+        <tr><td>Photocopy</td><td>4/page</td></tr>
+    </table>
+</div>
+
+<div class="card contact fade">
+    <h2>📞 Contact Details</h2>
+    <p>📱 Phone: 8400007753</p>
+    <p>📧 Email: ujalacsc8@gmail.com</p>
+    <p>📍 Address: Makunpur Near Bank Of Baroda Sundarpur, Uttar Pradesh</p>
+</div>
+
+<footer>
+    <p>© 2026 Ujala Cyber Cafe | All Rights Reserved</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/918400007753" target="_blank">💬</a>
+
+<script>
+function closeAnnouncement() {
+    document.getElementById('announcement-bar').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
