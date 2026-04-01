@@ -1,279 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ujala Cyber Cafe - Digital Services</title>
+<title>Ujala Cyber Cafe</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-/* --- BASE STYLES --- */
-body, html {
+body {
     margin: 0;
-    padding: 0;
-    height: 100%;
     font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: white;
     overflow-x: hidden;
-}
-
-/* --- BACKGROUND SLIDESHOW --- */
-.background-slideshow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.background-slideshow li {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    animation: imageAnimation 24s linear infinite;
-}
-
-.background-slideshow li:nth-child(1) { background-image: url('https://votercardprint.in/image/cache/catalog/ayushman-bharat-pvc-card-228x228.jpg'); }
-.background-slideshow li:nth-child(2) { background-image: url('https://votercardprint.in/image/cache/catalog/pan-card-print-500x500.jpg'); animation-delay: 6s; }
-.background-slideshow li:nth-child(3) { background-image: url('https://www.kanakkupillai.com/learn/wp-content/uploads/2023/09/Apply-for-an-Aadhar-Card-Online-1200x675.jpg'); animation-delay: 12s; }
-.background-slideshow li:nth-child(4) { background-image: url('https://lokpahal.org/wp-content/uploads/2023/11/up-rashan-card-yojna.webp'); animation-delay: 18s; }
-.background-slideshow li:nth-child(5) { background-image: url('https://i.ytimg.com/vi/ykhbIeQWhmE/maxresdefault.jpg'); animation-delay: 25s; }
-
-@keyframes imageAnimation { 
-    0% { opacity: 0; transform: scale(1); }
-    10% { opacity: 1; }
-    20% { opacity: 1; }
-    30% { opacity: 0; transform: scale(1.1); }
-    100% { opacity: 0; }
-}
-
-/* --- OVERLAY (Modern & Clean) --- */
-.bg-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
-    z-index: -1;
-}
-
-/* --- CONTENT AREA --- */
-.main-content {
-    position: relative;
-    z-index: 1;
     min-height: 100vh;
 }
 
-/* --- ANNOUNCEMENT BAR --- */
-#announcement-bar {
-    background: linear-gradient(90deg, #ff8c00, #ff0080);
-    padding: 10px 20px;
+/* 1. FULL SCREEN BOUNCING & BRIGHT TEXT */
+.moving-text {
+    position: fixed;
+    font-size: 60px;
+    font-weight: 900;
+    white-space: nowrap;
+    z-index: -1;
+    pointer-events: none;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px currentColor;
+    animation: bounceMove 10s linear infinite, colorCycle 4s linear infinite;
+}
+
+@keyframes bounceMove {
+    0%   { top: 0%; left: 0%; transform: translate(0, 0); }
+    25%  { top: 0%; left: 100%; transform: translate(-100%, 0); }
+    50%  { top: 100%; left: 100%; transform: translate(-100%, -100%); }
+    75%  { top: 100%; left: 0%; transform: translate(0, -100%); }
+    100% { top: 0%; left: 0%; transform: translate(0, 0); }
+}
+
+@keyframes colorCycle {
+    0%   { color: #ff00ea; } 
+    25%  { color: #00f2ff; } 
+    50%  { color: #39ff14; } 
+    75%  { color: #ffff00; } 
+    100% { color: #ff00ea; }
+}
+
+/* 2. ANIME.JS HEADING STYLE */
+.ml15 {
+    font-weight: 800;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 10px 0;
+}
+
+.ml15 .word {
+    display: inline-block;
+    line-height: 1em;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
+}
+
+/* 3. TOP BANNER */
+.top-banner {
+    background: linear-gradient(90deg, #ff512f, #dd2476);
+    color: white;
+    padding: 10px 0;
     font-weight: 500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     position: sticky;
     top: 0;
-    z-index: 2000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
 }
 
-.new-tag {
-    background: white;
-    color: #ff0080;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    margin-right: 10px;
-    animation: blink 1s infinite;
-}
-
-/* --- HEADER --- */
 header {
     text-align: center;
-    padding: 50px 20px;
+    padding: 40px 20px;
 }
 
-.logo {
+.logo-img {
     width: 150px;
-    border-radius: 50%;
-    border: 3px solid rgba(255,255,255,0.3);
+    height: auto;
+    border-radius: 10px;
+    background: white;
     padding: 5px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(5px);
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
 }
 
-header h1 {
-    font-size: clamp(28px, 6vw, 42px);
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    margin: 15px 0 5px;
-}
-
-/* --- GLASS CARD --- */
+/* 4. CARDS & TABLE */
 .card {
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 25px;
     margin: 20px auto;
-    max-width: 600px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    max-width: 850px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 1;
 }
 
-.card h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #00c6ff;
-}
-
-/* --- RATE LIST TABLE --- */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-td {
-    padding: 12px 0;
+th, td {
+    padding: 15px;
+    text-align: left;
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.price-tag {
-    background: rgba(0, 198, 255, 0.2);
-    color: #00c6ff;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    float: right;
-}
-
-/* --- CONTACT INFO --- */
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.icon-box {
-    background: rgba(255,255,255,0.1);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-/* --- WHATSAPP --- */
-.whatsapp {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #25D366;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+th {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
     color: white;
-    text-decoration: none;
-    font-size: 30px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    z-index: 999;
-    animation: float 3s ease-in-out infinite;
+    text-transform: uppercase;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
+/* 5. WHATSAPP & FOOTER */
 footer {
     text-align: center;
-    padding: 30px;
-    font-size: 13px;
-    opacity: 0.7;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+    position: relative;
+    z-index: 1;
 }
 
-@keyframes blink { 50% { opacity: 0.3; } }
-@keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    padding: 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    z-index: 100;
+    box-shadow: 0 0 15px #25D366;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .ml15 { font-size: 2em; }
+    .moving-text { font-size: 30px; }
+}
 </style>
 </head>
 
 <body>
 
-<ul class="background-slideshow">
-    <li></li><li></li><li></li><li></li>
-</ul>
+<div class="moving-text">उजाला जन सेवा केन्द्र</div>
 
-<div class="bg-overlay"></div>
-
-<div class="main-content">
-    <div id="announcement-bar">
-        <span class="new-tag">New Update</span> 
-        🎉 Cafe Open Since 26/03! 🚀
-    </div>
-
-    <header class="fade-in-up">
-        <img src="logo.jpeg" alt="Ujala CSC Logo" class="logo">
-        <h1>UJALA CYBER CAFE</h1>
-        <p style="letter-spacing: 3px; font-weight: 300;">FAST • SECURE • RELIABLE</p>
-    </header>
-
-    <div class="card">
-        <h2>📋 Rate List</h2>
-        <table>
-            <tr><td>Aadhar Print <span class="price-tag">₹50</span></td></tr>
-            <tr><td>PAN Card Apply <span class="price-tag">₹200</span></td></tr>
-            <tr><td>Online Form <span class="price-tag">₹100+</span></td></tr>
-            <tr><td>Print (B/W) <span class="price-tag">₹10</span></td></tr>
-            <tr><td>Print (Color) <span class="price-tag">₹10</span></td></tr>
-            <tr><td>Passport Size Photo <span class="price-tag">₹50 (8 pcs)</span></td></tr>
-        </table>
-    </div>
-
-    <div class="card">
-        <h2>📞 Contact Details</h2>
-        <div class="contact-item">
-            <div class="icon-box">📱</div>
-            <div>8400007753</div>
-        </div>
-        <div class="contact-item">
-            <div class="icon-box">📧</div>
-            <div>ujalacsc8@gmail.com</div>
-        </div>
-        <div class="contact-item">
-            <div class="icon-box">📍</div>
-            <div style="font-size: 14px;">Makunpur, Near Bank Of Baroda, Sundarpur, Shiv Bhajan Electric ke Neeche 230401</div>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2026 Ujala Cyber Cafe | All Rights Reserved</p>
-    </footer>
-
-    <a class="whatsapp" href="https://wa.me/918400007753?text=Hello" target="_blank">
-        <svg width="35" height="35" fill="white" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 0.068 3.558 0.068 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.948h.004c4.368 0 7.926-3.559 7.926-7.928a7.858 7.858 0 0 0-2.323-5.593zm-3.673 10.428c-.2.103-.619.263-1.076.263-.435 0-.814-.148-1.173-.346-.425-.236-1.11-.645-1.803-1.338-.693-.693-1.102-1.378-1.338-1.803-.198-.359-.346-.738-.346-1.173 0-.457.163-.876.263-1.076.101-.2.274-.274.379-.379.105-.105.158-.21.158-.316 0-.105-.053-.21-.158-.316-.105-.105-.274-.274-.379-.379-.101-.2-.21-.158-.316-.158-.105 0-.21.053-.316.158-.105.105-.274.274-.379.379-.101.2-.158.41-.158.619 0 .526.21 1.052.526 1.578.316.526.737 1.052 1.263 1.578.526.526 1.052.947 1.578 1.263.526.316 1.052.526 1.578.526.21 0 .42-.053.619-.158.2-.101.274-.274.379-.379.105-.105.21-.158.316-.158.105 0 .21.053.316.158.105.105.274.274.379.379.101.2.053.42.053.619s-.053.42-.158.619c-.105.2-.274.379-.379.379z"/>
-        </svg>
-    </a>
+<div class="top-banner">
+    <marquee scrollamount="6">
+        🎉 Hamara Ujala Cyber Cafe 26/03 Se Open Ho Gaya Hai! 🚀 Saste aur Fast Digital Services ke liye sampark karein.
+    </marquee>
 </div>
+
+<header>
+    <img src="image_2113dd.png" alt="Ujala CSC Logo" class="logo-img">
+    <h1 class="ml15">
+        <span class="word">UJALA</span>
+        <span class="word">CYBER</span>
+        <span class="word">CAFE</span>
+    </h1>
+    <p>Fast • Secure • Reliable Digital Services</p>
+</header>
+
+<div class="card">
+    <h2>📋 Updated Rate List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Service Name</th>
+                <th>Price (₹)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Aadhar Card Print (PVP/Color)</td><td>50</td></tr>
+            <tr><td>New PAN Card Apply</td><td>200</td></tr>
+            <tr><td>Voter ID Card Services</td><td>100</td></tr>
+            <tr><td>E-Shram Card Registration</td><td>80</td></tr>
+            <tr><td>Ration Card Online / Update</td><td>100</td></tr>
+            <tr><td>Passport Size Photo (Urgent)</td><td>50</td></tr>
+            <tr><td>Ayushman Card Print</td><td>50</td></tr>
+            <tr><td>Passport Online Form</td><td>1800</td></tr>
+            <tr><td>Driving License Online</td><td>3300</td></tr>
+            <tr><td>Vehicle Insurance (Bike/Car)</td><td>Starting 799</td></tr>
+            <tr><td>Online Exam Form</td><td>100</td></tr>
+            <tr><td>Black & White Print</td><td>10/page</td></tr>
+            <tr><td>Color Print</td><td>10/page</td></tr>
+            <tr><td>Photocopy</td><td>4/page</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h2>📞 Contact Details</h2>
+    <p>📱 Phone: 8400007753</p>
+    <p>📧 Email: ujalacybercafe@gmail.com</p>
+    <p>📍 Address: Makunpur Near Bank Of Baroda Sundarpur, Vijay Shukla Garments, Pratapgarh 230401</p>
+</div>
+
+<footer>
+    <p>© 2026 Ujala Cyber Cafe | All Rights Reserved</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/918400007753" target="_blank">💬</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script>
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml15 .word',
+    scale: [14,1],
+    opacity: [0,1],
+    easing: "easeOutCirc",
+    duration: 800,
+    delay: (el, i) => 800 * i
+  }).add({
+    targets: '.ml15',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+</script>
 
 </body>
 </html>
